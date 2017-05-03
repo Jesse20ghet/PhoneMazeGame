@@ -3,8 +3,8 @@ using System.Collections;
 
 public class RotatePieceScript : MonoBehaviour {
 
-	private float m_rotationAngle = 30f;
-	public float m_Speed = 80f;
+	private float m_rotationAngle = -45f;
+	public float m_Speed = 160f;
 	private Vector3 m_RotationDirection = Vector3.forward;
 
 	private Quaternion targetRotation;
@@ -12,9 +12,8 @@ public class RotatePieceScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		Debug.Log("RotationScript STart");
 		targetRotation = transform.rotation;
-		targetRotation *= Quaternion.AngleAxis(-45, Vector3.forward);
+		targetRotation *= Quaternion.AngleAxis(m_rotationAngle, m_RotationDirection);
 	}
 	
 	// Update is called once per frame

@@ -7,8 +7,9 @@ namespace Assets.Code.Utilities
 {
 	public class Enumerations
 	{
-		public enum OctagonType { Start, Finish, Empty }
+		public enum OctagonType { Empty, Normal, Endpoint }
 		public enum OctagonAction { Turn, Swap }
-		public enum OctagonColor { Green, Red, Blue, Yellow }
+		public enum OctagonColor { Default, Green, Red, Blue, Yellow }
+		public enum Wall { N, NE, NW, E, W, SW, SE, S}
 	}
 }

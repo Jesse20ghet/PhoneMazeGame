@@ -8,8 +8,10 @@ public class RotateOctagonScript : MonoBehaviour
 	{
 		Debug.Log("Rotation Direction Clicked");
 
+		var rotatePieceScript = this.gameObject.GetComponent<RotatePieceScript>();
+		var components = gameObject.GetComponents<MonoBehaviour>();
 		// Check to see if the object is currently rotating
-		if(gameObject.GetComponent<RotatePieceScript>() == null)
+		if (rotatePieceScript == null)
 			gameObject.AddComponent<RotatePieceScript>();
 	}
 }

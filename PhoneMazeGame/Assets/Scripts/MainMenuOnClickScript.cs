@@ -11,6 +11,7 @@ public class MainMenuOnClickScript : MonoBehaviour {
 
 	public GameObject mainMenuCanvasReference;
 	public GameObject puzzleMenuCanvasReference;
+	public GameObject puzzleCategoriesCanvasReference;
 
 	void Start()
 	{
@@ -23,9 +24,12 @@ public class MainMenuOnClickScript : MonoBehaviour {
 		if (pointerHovering)
 		{
 			ChangeColor(originalColor);
-			mainMenuCanvasReference.SetActive(false);
-			puzzleMenuCanvasReference.SetActive(true);
-			//TODO: Load "Levels" view. (Scene or whatever)
+			mainMenuCanvasReference.GetComponent<Canvas>().enabled = false;
+			puzzleCategoriesCanvasReference.GetComponent<Canvas>().enabled = true;
+			puzzleMenuCanvasReference.GetComponent<Canvas>().enabled = false;
+
+			//Load all available categories
+
 		}
 	}
 

@@ -3,20 +3,19 @@ using System.Collections;
 using System;
 using UnityEngine.SceneManagement;
 
-public class PuzzleMenuLevelSelectScript : MonoBehaviour {
-
+public class PuzzleMenuLevelSelectScript : MonoBehaviour
+{
 	public string PuzzleToLoad = "";
+	public string PuzzleCategory = "";
 
 	public void OnClick()
 	{
-		var category = transform.parent.name;
-
-		if(!String.IsNullOrEmpty(category) && !String.IsNullOrEmpty(PuzzleToLoad))
+		if (!String.IsNullOrEmpty(PuzzleCategory) && !String.IsNullOrEmpty(PuzzleToLoad))
 		{
 			Debug.Log("Clicked: " + PuzzleToLoad);
 
 			PlayerPrefs.SetString("PuzzleName", PuzzleToLoad);
-			PlayerPrefs.SetString("Category", category);
+			PlayerPrefs.SetString("Category", PuzzleCategory);
 
 			SceneManager.LoadScene("PuzzleScene");
 		}

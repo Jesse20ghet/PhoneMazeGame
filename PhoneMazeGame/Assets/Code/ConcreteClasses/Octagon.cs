@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Code.Utilities;
+using System.Xml.Serialization;
 
 namespace Assets.Code.ConcreteClasses
 {
@@ -20,6 +21,9 @@ namespace Assets.Code.ConcreteClasses
 		[System.Xml.Serialization.XmlElement("Color")]
 		public Enumerations.OctagonColor Color { get; set; }
 
+		[XmlArray("Walls")]
+		[XmlArrayItem("Wall", typeof(Enumerations.Wall))]
+		public List<Enumerations.Wall> Walls { get; set; }
 
 		[System.Xml.Serialization.XmlElement("X")]
 		public int XCoordinate { get; set; }
