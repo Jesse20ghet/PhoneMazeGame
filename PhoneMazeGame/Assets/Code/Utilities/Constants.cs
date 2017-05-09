@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.Code.Utilities
 {
@@ -20,5 +21,7 @@ namespace Assets.Code.Utilities
 			new PuzzleCategoryDescriptor() {Difficulty = 5, CategoryName = "9x9", LevelsAvailable = 10, LevelsCompleted = 0 },
 			new PuzzleCategoryDescriptor() {Difficulty = 5, CategoryName = "10x10", LevelsAvailable = 10, LevelsCompleted = 0 }
 		};
+
+		//public static Color[][] 
 	}
 }

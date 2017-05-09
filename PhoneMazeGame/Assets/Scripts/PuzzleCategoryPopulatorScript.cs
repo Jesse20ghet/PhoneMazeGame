@@ -20,7 +20,7 @@ public class PuzzleCategoryPopulatorScript : MonoBehaviour {
 		foreach(var category in Constants.PuzzleCategories)
 		{
 			var goRef = (GameObject)GameObject.Instantiate(categoryUIObject, Vector3.zero, new Quaternion(0, 0, 0, 0));
-			goRef.transform.parent = grid.transform;
+			goRef.transform.SetParent(grid.transform);
 			goRef.transform.Find("CategoryNameText").GetComponent<Text>().text = category.CategoryName + " Puzzles";
 			goRef.transform.Find("PuzzlesCompletedText").GetComponent<Text>().text = category.LevelsCompleted + " / " + category.LevelsAvailable;
 			goRef.GetComponent<PuzzleCategoryInfoScript>().CategoryName = category.CategoryName;

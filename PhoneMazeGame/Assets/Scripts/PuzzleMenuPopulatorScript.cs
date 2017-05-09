@@ -66,7 +66,7 @@ public class PuzzleMenuPopulatorScript : MonoBehaviour {
 	private void CreatePuzzleUIElement(TextAsset puzzle)
 	{
 		var uiElementRef = (GameObject)GameObject.Instantiate(puzzleUIElement, new Vector3(0, 0), new Quaternion());
-		uiElementRef.transform.parent = puzzleContainer.transform;
+		uiElementRef.transform.SetParent(puzzleContainer.transform);
 		uiElementRef.transform.localPosition = new Vector3(currentXcoordinate, currentYcoordinate);
 		uiElementRef.transform.localScale = Vector3.one;
 

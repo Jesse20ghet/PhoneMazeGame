@@ -13,15 +13,21 @@ public class RotatePieceScript : MonoBehaviour {
 	void Start ()
 	{
 		targetRotation = transform.rotation;
+		//targetRotation *= Quaternion.Euler(0, 0, 45);
 		targetRotation *= Quaternion.AngleAxis(m_rotationAngle, m_RotationDirection);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		//transform.Rotate(Vector3.forward, 1);
+
 		transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, m_Speed * Time.deltaTime);
 
-		if (transform.rotation == targetRotation)
+		if (Mathf.Approximately(transform.rotation.z, targetRotation.z))
 			Destroy(this);
+
+		//if (transform.rotation.Equals(targetRotation))
+		//	Destroy(this);
 	}
 }
