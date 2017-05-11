@@ -28,14 +28,12 @@ public class MainMenuNavigtationScript : MonoBehaviour {
 
 	public void ShowMainMenu()
 	{
-		Debug.Log("Show main Menu");
 		MainMenuCanvas.GetComponent<Animator>().SetBool("Show", true);
 		CategoryCanvas.GetComponent<Animator>().SetBool("Show", false);
 	}
 
 	public void ShowCategoriesMenu()
 	{
-		Debug.Log("Show Categores Menu");
 		MainMenuCanvas.GetComponent<Animator>().SetBool("Show", false);
 		CategoryCanvas.GetComponent<Animator>().SetBool("Show", true);
 		SelectPuzzleCanvas.GetComponent<Animator>().SetBool("Show", false);
@@ -43,7 +41,6 @@ public class MainMenuNavigtationScript : MonoBehaviour {
 
 	public void ShowPuzzleMenu()
 	{
-		Debug.Log("Show PUzzle Menu");
 		CategoryCanvas.GetComponent<Animator>().SetBool("Show", false);
 		SelectPuzzleCanvas.GetComponent<Animator>().SetBool("Show", true);
 

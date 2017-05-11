@@ -78,18 +78,22 @@
     <Compile Include="Assets\Code\ConcreteClasses\Octagon.cs" />
     <Compile Include="Assets\Code\ConcreteClasses\Puzzle.cs" />
     <Compile Include="Assets\Code\ConcreteClasses\PuzzleCategoryDescriptor.cs" />
+    <Compile Include="Assets\Code\PathTraverser.cs" />
     <Compile Include="Assets\Code\TextPuzzleParser.cs" />
     <Compile Include="Assets\Code\Utilities\Constants.cs" />
     <Compile Include="Assets\Code\Utilities\EnumToColorConverter.cs" />
     <Compile Include="Assets\Code\Utilities\Enumerations.cs" />
     <Compile Include="Assets\Code\Utilities\UnityUtility.cs" />
+    <Compile Include="Assets\Scripts\ActionControllerScript.cs" />
     <Compile Include="Assets\Scripts\BackgroundScripts\BackgroundOctagonControllerScript.cs" />
     <Compile Include="Assets\Scripts\DynamicGridScript.cs" />
+    <Compile Include="Assets\Scripts\HighlightPathScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuNavigtationScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuOnClickScript.cs" />
     <Compile Include="Assets\Scripts\MainMenuStartupScript.cs" />
-    <Compile Include="Assets\Scripts\OctagonClickControllerScript.cs" />
+    <Compile Include="Assets\Scripts\OctagonControllerScript.cs" />
     <Compile Include="Assets\Scripts\OctagonSwapScript.cs" />
+    <Compile Include="Assets\Scripts\OctagonWinScript.cs" />
     <Compile Include="Assets\Scripts\PuzzleCategoryInfoScript.cs" />
     <Compile Include="Assets\Scripts\PuzzleCategoryPopulatorScript.cs" />
     <Compile Include="Assets\Scripts\PuzzleControllerScript.cs" />
@@ -97,6 +101,7 @@
     <Compile Include="Assets\Scripts\PuzzleMenuPopulatorScript.cs" />
     <Compile Include="Assets\Scripts\ReturnToMainMenuScript.cs" />
     <Compile Include="Assets\Scripts\RotatePieceScript.cs" />
+    <Compile Include="Assets\Scripts\TimeUpdaterScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Puzzles\10x10\Level 1.xml" />
@@ -120,6 +125,7 @@
     <None Include="Assets\Resources\Puzzles\5x5\Level 7.xml" />
     <None Include="Assets\Resources\Puzzles\5x5\Level 8.xml" />
     <None Include="Assets\Resources\Puzzles\5x5\Level 9.xml" />
+    <None Include="Assets\Resources\Puzzles\JESSES TRAVERSE TEST\Level 1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

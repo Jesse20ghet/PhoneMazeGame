@@ -10,6 +10,6 @@ namespace Assets.Code.Utilities
 		public enum OctagonType { Empty, Normal, Endpoint }
 		public enum OctagonAction { Turn, Swap }
 		public enum OctagonColor { Locked, Default, Green, Red, Blue, Yellow }
-		public enum Wall { N, NE, NW, E, W, SW, SE, S}
+		public enum Wall { N, NE, E, SE, S, SW, W, NW }
 	}
 }

@@ -14,6 +14,7 @@ public class PuzzleControllerScript : MonoBehaviour {
 	private List<GameObject> OctagonsList = new List<GameObject>();
 	private int currentPuzzleIterator = 0;
 
+	private int currentOctagonNumber = 0;
 	private string CurrentPuzzleName;
 	private string CurrentPuzzleCategory;
 
@@ -56,7 +57,12 @@ public class PuzzleControllerScript : MonoBehaviour {
 		{
 			// Create appropriate game object type - Could be 3 exit, 4 exit, swap
 			var octagonGameObject = GetAppropriateGameObjectOctagon(octagon.Type);
-			var octagonGameObjectControllerScriptRef = octagonGameObject.GetComponent<OctagonClickControllerScript>();
+			var octagonGameObjectControllerScriptRef = octagonGameObject.GetComponent<OctagonControllerScript>();
+
+			octagonGameObjectControllerScriptRef.XCoordinate = octagon.XCoordinate;
+			octagonGameObjectControllerScriptRef.YCoordinate = octagon.YCoordinate;
+			octagonGameObjectControllerScriptRef.octagonType = octagon.Type;
+			octagonGameObjectControllerScriptRef.OctagonId = currentOctagonNumber++;
 
 			// Set the gameobject to the appropriate octagon action
 			if (octagonGameObjectControllerScriptRef != null)
@@ -85,19 +91,47 @@ public class PuzzleControllerScript : MonoBehaviour {
 		// Now that all the octagons are in the game world, go through them and wire up their associated tiles
 		foreach (var octagonGameObject in OctagonsList)
 		{
-			var octagonGameObjectScriptRef = octagonGameObject.GetComponent<OctagonClickControllerScript>();
+			var octagonGameObjectScriptRef = octagonGameObject.GetComponent<OctagonControllerScript>();
 			if(octagonGameObjectScriptRef.octagonColor != Enumerations.OctagonColor.Default && 
 				octagonGameObjectScriptRef.octagonColor != Enumerations.OctagonColor.Locked)
 			{
-				octagonGameObjectScriptRef.linkedOctagon = OctagonsList.Single(x => x.GetComponent<OctagonClickControllerScript>().octagonColor == octagonGameObjectScriptRef.octagonColor
-																&& x != octagonGameObject);
+				octagonGameObjectScriptRef.linkedOctagons.AddRange(OctagonsList.Where(x => x.GetComponent<OctagonControllerScript>().octagonColor == octagonGameObjectScriptRef.octagonColor
+																&& x != octagonGameObject));
 			}
 		}
 
 		UpdateText();
 	}
 
-	private void SetVisibleColor(GameObject octagonGameObject, OctagonClickControllerScript octagonGameObjectControllerScriptRef)
+	public void CheckForWin()
+	{
+		var endPoints = OctagonsList.Where(x => x.GetComponent<OctagonControllerScript>().octagonType == Enumerations.OctagonType.Endpoint).ToList();
+
+		var nonEmptyOctagons = OctagonsList.Where(x => x.GetComponent<OctagonControllerScript>().octagonType != Enumerations.OctagonType.Empty).ToList();
+		var pathTraverser = new PathTraverser(endPoints[0], endPoints[1], nonEmptyOctagons);
+
+		var levelWon = pathTraverser.CanTraverse();
+
+		if (levelWon)
+		{
+			LevelWon(pathTraverser.GetCorrectPath());
+		}
+	}
+
+	private void LevelWon(List<GameObject> correctPath)
+	{
+		//TODO: Tell them they've completed the level
+		GameObject.Find("DynamicPuzzleStatus").GetComponent<Text>().text = "Complete";
+		GameObject.Find("DynamicPuzzleStatus").GetComponent<Text>().color = Color.green;
+		GameObject.Find("ActionController").GetComponent<ActionControllerScript>().DisableActions();
+
+		gameObject.AddComponent<HighlightPathScript>();
+		gameObject.GetComponent<HighlightPathScript>().correctPath = correctPath;
+
+		Debug.Log("Puzzle Complete");
+	}
+
+	private void SetVisibleColor(GameObject octagonGameObject, OctagonControllerScript octagonGameObjectControllerScriptRef)
 	{
 		octagonGameObject.transform.FindChild("Background").GetComponent<Image>().color = 
 			EnumToColorConverter.SwapBackgroundColor(octagonGameObjectControllerScriptRef.octagonColor);
@@ -143,7 +177,7 @@ public class PuzzleControllerScript : MonoBehaviour {
 	{
 		var widthOfPuzzleContainer = puzzleContainer.GetComponent<RectTransform>().rect.width;
 		var cellWidth = widthOfPuzzleContainer / gridWidthCount;
-		var scale = cellWidth / gameObjectWidth;
+		float scale = (cellWidth / gameObjectWidth);
 
 		return new Vector3(scale, scale);
 

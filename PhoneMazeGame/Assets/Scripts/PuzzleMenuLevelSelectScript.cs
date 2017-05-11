@@ -12,8 +12,6 @@ public class PuzzleMenuLevelSelectScript : MonoBehaviour
 	{
 		if (!String.IsNullOrEmpty(PuzzleCategory) && !String.IsNullOrEmpty(PuzzleToLoad))
 		{
-			Debug.Log("Clicked: " + PuzzleToLoad);
-
 			PlayerPrefs.SetString("PuzzleName", PuzzleToLoad);
 			PlayerPrefs.SetString("Category", PuzzleCategory);
 

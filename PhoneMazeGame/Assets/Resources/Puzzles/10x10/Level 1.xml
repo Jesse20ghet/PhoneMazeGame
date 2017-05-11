@@ -154,7 +154,7 @@
     </Octagon>
     <Octagon>
       <Type>Normal</Type>
-      <Color>Default</Color>
+      <Color>Yellow</Color>
       <X>9</X>
       <Y>0</Y>
       <Walls>
@@ -1148,7 +1148,8 @@
     </Octagon>
     <Octagon>
       <Type>Normal</Type>
-      <Color>Default</Color>
+	  <Action>Swap</Action>
+      <Color>Green</Color>
       <X>1</X>
       <Y>7</Y>
       <Walls>
@@ -1228,7 +1229,8 @@
     </Octagon>
     <Octagon>
       <Type>Normal</Type>
-      <Color>Default</Color>
+	  <Action>Swap</Action>
+      <Color>Green</Color>
       <X>6</X>
       <Y>7</Y>
       <Walls>
@@ -1580,7 +1582,7 @@
       </Walls>
     </Octagon>
     <Octagon>
-      <Type>Normal</Type>
+      <Type>Endpoint</Type>
       <Color>Default</Color>
       <X>8</X>
       <Y>9</Y>
@@ -1596,7 +1598,7 @@
       </Walls>
     </Octagon>
     <Octagon>
-      <Type>Normal</Type>
+      <Type>Endpoint</Type>
       <Color>Default</Color>
       <X>9</X>
       <Y>9</Y>

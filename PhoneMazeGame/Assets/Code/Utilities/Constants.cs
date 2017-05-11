@@ -19,7 +19,8 @@ namespace Assets.Code.Utilities
 			new PuzzleCategoryDescriptor() {Difficulty = 3, CategoryName = "7x7", LevelsAvailable = 10, LevelsCompleted = 0 },
 			new PuzzleCategoryDescriptor() {Difficulty = 4, CategoryName = "8x8", LevelsAvailable = 10, LevelsCompleted = 0 },
 			new PuzzleCategoryDescriptor() {Difficulty = 5, CategoryName = "9x9", LevelsAvailable = 10, LevelsCompleted = 0 },
-			new PuzzleCategoryDescriptor() {Difficulty = 5, CategoryName = "10x10", LevelsAvailable = 10, LevelsCompleted = 0 }
+			new PuzzleCategoryDescriptor() {Difficulty = 5, CategoryName = "10x10", LevelsAvailable = 10, LevelsCompleted = 0 },
+			new PuzzleCategoryDescriptor() {Difficulty = 5, CategoryName = "JESSES TRAVERSE TEST", LevelsAvailable = 10, LevelsCompleted = 0 }
 		};
 
 		//public static Color[][] 
